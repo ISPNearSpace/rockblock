@@ -20,7 +20,7 @@ def get_data():
     try:
         with open('BME280.csv', 'a') as f:
             thewriter = csv.writer(f)
-            thewriter.writerow(["Time =", float(dateTime()), "Temperature =", temperature, "Pressure =", pressure, "Humidity =", humidity])
+            thewriter.writerow(["Time =", float(secs), "Temperature =", temperature, "Pressure =", pressure, "Humidity =", humidity])
     except:
         pass
     
