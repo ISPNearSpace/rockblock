@@ -1,8 +1,13 @@
 import protocol
 from time import sleep
-import /nsp/Adafruit_GPIO/Adafruit_Python_BNO055/BNO055
-import /nsp/Adafruit_GPIO/Adafruit_Python_BME280/BME280
-import /nsp/Adafruit_Python_GPIO/Adafruit_CCS811_python/CCS811
+import sys
+
+sys.path.append('/nsp/Adafruit_GPIO/Adafruit_Python_BNO055')
+sys.path.append('/nsp/Adafruit_GPIO/Adafruit_Python_BME280')
+sys.path.append('/nsp/Adafruit_Python_GPIO/Adafruit_CCS811_python')
+import BNO055
+import BME280
+import CCS811
 
 
 SLEEP_TIME = 5
