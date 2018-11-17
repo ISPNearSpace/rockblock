@@ -18,3 +18,5 @@ def save_data(): # main functions to be called from rockblock
     with open('CCS811.csv', 'a') as f:
         thewriter = csv.writer(f)
         thewriter.writerow(["Secs =", secs, "CO2 (ppm) =", co2, "TVOC =", tvoc])
+
+save_data()
