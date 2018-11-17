@@ -1,7 +1,7 @@
 import protocol
 from time import sleep
-import BNO055
-import BME280
+import /nsp/Adafruit_GPIO/Adafruit_Python_BNO055/BNO055
+import /nsp/Adafruit_GPIO/Adafruit_Python_BME280/BME280
 import CCS811
 
 
