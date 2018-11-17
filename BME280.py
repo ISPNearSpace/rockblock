@@ -25,3 +25,5 @@ def get_data():
         pass
     
     return [temperature,pressure,humidity]
+
+get_data()
