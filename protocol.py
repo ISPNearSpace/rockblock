@@ -12,10 +12,8 @@ class RockBlock (object):
 
     def send_message(self, msg):
         self.s.write("AT&K0\r")
-
-        command = "AT+SBDWT=" + str(msg)
-
-        self.s.write(command + "\r")
+        
+        self.s.write("AT+SBDWT={}".format(msg))
 
         self.s.write("AT+SBDIX\r")
 
