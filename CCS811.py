@@ -8,11 +8,7 @@ import csv
 
 ccs = Adafruit_CCS811()
 
-def get_data(): # main functions to be called from rockblock
-    while not ccs.available():
-        print("CCS811 (gas sensors) is not working!")
-        pass
-
+def save_data(): # main functions to be called from rockblock
     def dateTime():  # get UNIX time
         secs = float(time.time())
         secs = secs * 1000
@@ -29,14 +25,7 @@ def get_data(): # main functions to be called from rockblock
     secs = float(dateTime())
     co2 = float(co2Read())
     tvoc = float(tvocRead())
-    values = [secs,co2,tvoc]
-    return values
 
-
-    #print(secs)
-    #print(co2)
-    #print(tvoc)
-
-    #with open('CCS811.csv', 'a') as f:
-    #    thewriter = csv.writer(f)
-    #    thewriter.writerow(["Secs =", secs, "CO2 (ppm) =", co2, "TVOC =", tvoc])
+    with open('CCS811.csv', 'a') as f:
+        thewriter = csv.writer(f)
+        thewriter.writerow(["Secs =", secs, "CO2 (ppm) =", co2, "TVOC =", tvoc])
