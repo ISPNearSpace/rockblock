@@ -25,3 +25,5 @@ def get_data():
         pass
 
     return [accelerometer, gyroscope]
+
+get_data()
