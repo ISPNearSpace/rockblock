@@ -14,33 +14,31 @@ def get_data():
         secs = float(time.time())
         secs = secs * 1000
         return secs
-
-
+    
     def tempRead():  # read temperature, return float with 3 decimal points
-        degrees = float('{0:.3f}'.format(sensor.read_temperature()))
+        degrees = float('{0:.1f}'.format(sensor.read_temperature()))
         return degrees
 
 
     def pressRead():  # read pressure, return float with 3 decimal points
-        pascals = float('{0:.3f}'.format(sensor.read_pressure() / 100))
+        pascals = float('{0:.1f}'.format(sensor.read_pressure() / 100))
         return pascals
 
 
     def humidityRead():  # read humidity, return float with 3 decimal points
-        humidity = float('{0:.3f}'.format(sensor.read_humidity()))
+        humidity = float('{0:.1f}'.format(sensor.read_humidity()))
         return humidity
 
 
-    secs = float(dateTime())
     temperature = float(tempRead())
     pressure = float(pressRead())
     humidity = float(humidityRead())
 
-    print(secs)
-    print(temperature)
-    print(pressure)
-    print(humidity)
-
-    #with open('BME280.csv', 'a') as f:
-    #    thewriter = csv.writer(f)
-    #    thewriter.writerow(["Secs =", secs, "Temperature =", temperature, "Pressure =", pressure, "Humidity =", humidity])
+    try:
+        with open('BME280.csv', 'a') as f:
+            thewriter = csv.writer(f)
+            thewriter.writerow(["Time =", float(dateTime()), "Temperature =", temperature, "Pressure =", pressure, "Humidity =", humidity])
+    except:
+        pass
+    
+    return [temperature,pressure,humidity]
