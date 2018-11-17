@@ -2,15 +2,15 @@ import protocol
 from time import sleep
 import sys
 
-sys.path.append('/nsp/Adafruit_GPIO/Adafruit_Python_BNO055')
-sys.path.append('/nsp/Adafruit_GPIO/Adafruit_Python_BME280')
-sys.path.append('/nsp/Adafruit_Python_GPIO/Adafruit_CCS811_python')
-import BNO055
+#sys.path.append('/nsp/Adafruit_GPIO/Adafruit_Python_BNO055')
+sys.path.append('/home/pi/nsp/Adafruit_GPIO/Adafruit_Python_BME280')
+sys.path.append('/home/pi/nsp/Adafruit_Python_GPIO/Adafruit_CCS811_python')
+#import BNO055
 import BME280
 import CCS811
 
 
-SLEEP_TIME = 5
+SLEEP_TIME = 30
 rb = protocol.RockBlock("/dev/serial0")
 
 
