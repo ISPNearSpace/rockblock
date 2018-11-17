@@ -11,11 +11,11 @@ sensor = BME280(t_mode=BME280_OSAMPLE_8, p_mode=BME280_OSAMPLE_8, h_mode=BME280_
 def get_data():
     secs = float(time.time()) * 1000
 
-    temperature = float('{0:.5f}'.format(sensor.read_temperature()))
+    temperature = float('{0:.3f}'.format(sensor.read_temperature()))
 
-    pressure = float('{0:.5f}'.format(sensor.read_pressure() / 100))
+    pressure = float('{0:.3f}'.format(sensor.read_pressure() / 100))
 
-    humidity = float('{0:.5f}'.format(sensor.read_humidity()))
+    humidity = float('{0:.3f}'.format(sensor.read_humidity()))
 
     try:
         with open('BME280.csv', 'a') as f:
