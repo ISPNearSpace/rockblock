@@ -9,22 +9,11 @@ import csv
 ccs = Adafruit_CCS811()
 
 def save_data(): # main functions to be called from rockblock
-    def dateTime():  # get UNIX time
-        secs = float(time.time())
-        secs = secs * 1000
-        return secs
+    secs = float(time.time()) * 1000
 
-    def co2Read():  # read co2, return float with 3 decimal points
-        co2 = float('{0:.3f}'.format(ccs.geteCO2()))
-        return co2
+    co2 = float('{0:.3f}'.format(ccs.geteCO2()))
 
-    def tvocRead():  # read tvoc, return float with 3 decimal points
-        tvoc = float('{0:.3f}'.format(ccs.getTVOC()))
-        return tvoc
-
-    secs = float(dateTime())
-    co2 = float(co2Read())
-    tvoc = float(tvocRead())
+    tvoc = float('{0:.3f}'.format(ccs.getTVOC()))
 
     with open('CCS811.csv', 'a') as f:
         thewriter = csv.writer(f)
