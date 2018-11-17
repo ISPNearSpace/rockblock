@@ -10,15 +10,8 @@ class RockBlock (object):
         self.portId = portId
         self.s = Serial(self.portId, 19200)
 
-        # self.s.write("ATE1\r")  # Enable echo
-        self.s.write("AT&K0\r")  # Disable Flow Control
-        # self.s.write("AT+SBDMTA=0\r")  # _disableRingAlerts
-
     def send_message(self, msg):
-        self.s.write("AT\r")
-        if self.s.readline().strip() == "AT":
-            print self.s.readline().strip()
-
+        self.s.write("AT&K0\r")
 
         command = "AT+SBDWT=" + str(msg)
 
@@ -27,3 +20,23 @@ class RockBlock (object):
         self.s.write("AT+SBDIX\r")
 
         return True
+    
+    def check_connection(self):
+        command = "AT+CSQ"
+        
+        self.s.write(command + "\r")
+             
+        if( self.s.readline().strip() == command):
+        
+            response = self.s.readline().strip()
+                  
+            if( response.find("+CSQ") >= 0 ):
+                            
+                self.s.readline().strip()    #OK
+                self.s.readline().strip()    #BLANK
+                                        
+                if( len(response) == 6):
+                
+                    return int( response[5] )
+            
+        return -1 
