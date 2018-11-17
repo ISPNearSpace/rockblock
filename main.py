@@ -39,7 +39,10 @@ def get_data():
 
 while True:
     data = get_data()
-    s = make_string(data)
-    rb.send_message(s)
+    try:
+        s = make_string(data)
+        rb.send_message(s)
+    except:
+        pass
 
     sleep(SLEEP_TIME)
