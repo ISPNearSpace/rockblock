@@ -11,8 +11,8 @@ ccs = Adafruit_CCS811()
 def save_data(): # main functions to be called from rockblock
 	if ccs.available():
 	    if not ccs.readData():
-            with open('CCS811.csv', 'a') as f:
-                thewriter = csv.writer(f)
-                thewriter.writerow(["CO2: ", ccs.geteCO2(), "ppm, TVOC: ", ccs.getTVOC()])
+		    with open('CCS811.csv', 'a') as f:
+			thewriter = csv.writer(f)
+			thewriter.writerow(["CO2: ", ccs.geteCO2(), "ppm, TVOC: ", ccs.getTVOC()])
 
 save_data()
