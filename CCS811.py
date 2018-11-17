@@ -1,5 +1,5 @@
 import os
-from time import sleep
+import time
 import datetime
 import glob
 from time import strftime
@@ -8,8 +8,9 @@ import csv
 
 ccs = Adafruit_CCS811()
 
-while not css.available():
+while not ccs.available():
     print("CCS811 (gas sensors) is not working!")
+    pass
 
 def dateTime():  # get UNIX time
     secs = float(time.time())
